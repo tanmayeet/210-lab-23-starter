@@ -41,5 +41,7 @@ int main_menu() {
     cout << "[3] List goats\n";
     cout << "[4] Quit\n";
     cout << "Choice --> ";
+
+    string line;
   }
 }
