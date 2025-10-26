@@ -43,5 +43,13 @@ int main_menu() {
     cout << "Choice --> ";
 
     string line;
+    if (!getline(cin, line)) {
+    }
   }
 }
+
+void add_goat(list<Goat>& trip, string[], string[]) {}
+
+void delete_goat(list<Goat>& trip) {}
+
+void display_trip(list<Goat> trip) {}
