@@ -18,6 +18,18 @@ class Goat {
     color = "";
   }
   // write three more constructors
+  Goat(string name) { name = "Tofu"; }
+
+  Goat(string name, int age) {
+    name = "Tofu";
+    age = 2;
+  }
+
+  Goat(string name, int age, string color) {
+    name = "Tofu";
+    age = 2;
+    color = "Brown";
+  }
 
   // setters and getters
   void set_name(string n) { name = n; };
