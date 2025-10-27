@@ -11,10 +11,10 @@ using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-int select_goat(const list<Goat> trip);
+int select_goat(list<Goat> trip);
 void delete_goat(list<Goat>& trip);
 void add_goat(list<Goat>& trip, string names[], string colors[]);
-void display_trip(const list<Goat> trip);
+void display_trip(list<Goat> trip);
 int main_menu();
 
 int main() {
@@ -84,7 +84,7 @@ int main_menu() {
 // display_trip displays the full list of goats
 // arguments: list<Goat> trip
 // returns: nothing
-void display_trip(const list<Goat> trip) {
+void display_trip(list<Goat> trip) {
   if (trip.empty()) {
     cout << "Trip has no goats.\n";
     return;
@@ -100,7 +100,7 @@ void display_trip(const list<Goat> trip) {
 // select_goat allows a user to select a goat based on their input
 // arguments: list<Goat>& trip
 // returns: user selected int
-int select_goat(const list<Goat> trip) {
+int select_goat(list<Goat> trip) {
   if (trip.empty()) {
     cout << "Trip has no goats.\n";
     return -1;
