@@ -1,5 +1,6 @@
 // COMSC210 | Lab 23 | Tanmayee Chalamalasetti
 // IDE Used: VS Code
+#include <ctime>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -10,10 +11,10 @@ using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-int select_goat(list<Goat> trip);
+int select_goat(const list<Goat> trip);
 void delete_goat(list<Goat>& trip);
 void add_goat(list<Goat>& trip, string names[], string colors[]);
-void display_trip(list<Goat> trip);
+void display_trip(const list<Goat> trip);
 int main_menu();
 
 int main() {
@@ -42,20 +43,28 @@ int main() {
   //   return 0;
 
   int choice;
-  choice = main_menu();
-  if (choice == 1) {
-    add_goat(trip, names, colors);
-  } else if (choice == 2) {
-    delete_goat(trip);
-  } else if (choice == 3) {
-    display_trip(trip);
-  } else if (choice == 4) {
-    return -1;
-  } else {
-    cout << "Invalid entry.";
-  }
+  do {
+    choice = main_menu();
+    if (choice == 1) {
+      add_goat(trip, names, colors);
+    } else if (choice == 2) {
+      delete_goat(trip);
+    } else if (choice == 3) {
+      display_trip(trip);
+    } else if (choice == 4) {
+      return -1;
+    } else {
+      cout << "Invalid entry.";
+    }
+  } while (choice != 4);
+
+  return 0;
 }
 
+// main_menu ouputs a menu, then obtains, validates, and returns the user's
+// choice
+// arguments: none
+// returns: input
 int main_menu() {
   while (true) {
     cout << "*** GOAT MANAGER 3001 ***\n";
@@ -75,7 +84,7 @@ int main_menu() {
 // display_trip displays the full list of goats
 // arguments: list<Goat> trip
 // returns: nothing
-void display_trip(list<Goat> trip) {
+void display_trip(const list<Goat> trip) {
   if (trip.empty()) {
     cout << "Trip has no goats.\n";
     return;
@@ -88,10 +97,10 @@ void display_trip(list<Goat> trip) {
   }
 }
 
-// select_goat
+// select_goat allows a user to select a goat based on their input
 // arguments: list<Goat>& trip
 // returns: user selected int
-int select_goat(list<Goat> trip) {
+int select_goat(const list<Goat> trip) {
   if (trip.empty()) {
     cout << "Trip has no goats.\n";
     return -1;
@@ -117,7 +126,7 @@ int select_goat(list<Goat> trip) {
 // nothing
 void add_goat(list<Goat>& trip, string names[], string colors[]) {
   int rand_name = rand() % SZ_NAMES;
-  int rand_age = rand() % MAX_AGE;
+  int rand_age = rand() % (MAX_AGE + 1);
   int rand_color = rand() % SZ_COLORS;
 
   Goat g(names[rand_name], rand_age, colors[rand_color]);
