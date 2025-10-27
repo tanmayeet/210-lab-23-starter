@@ -43,7 +43,7 @@ int main() {
 
   int index = select_goat(trip);
 
-  display_trip(trip);
+  // display_trip(trip);
   return 0;
 }
 
@@ -86,10 +86,10 @@ int select_goat(list<Goat> trip) {
   display_trip(trip);
 
   int choice;
-  cout << "Enter the number of the goat you want to select (0 to exit)";
+  cout << "Enter the number of the goat you want to select (0 to exit): ";
   cin >> choice;
 
-  while (choice < 0 || choice > trip.size()) {
+  while (choice < 0 || choice > (int)trip.size()) {
     cout << "Invalid choice. Choose again.\n";
     cin >> choice;
   }
