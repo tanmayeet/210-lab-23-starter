@@ -50,7 +50,12 @@ int main_menu() {
 
 int select_goat(list<Goat> trip) {}
 
-void add_goat(list<Goat>& trip, string[], string[]) {}
+void add_goat(list<Goat>& trip, string[], string[]) {
+  // int n = rand() % ;
+
+  Goat g();
+  // trip.push_back(g);
+}
 
 void delete_goat(list<Goat>& trip) {}
 
