@@ -59,4 +59,15 @@ void add_goat(list<Goat>& trip, string[], string[]) {
 
 void delete_goat(list<Goat>& trip) {}
 
-void display_trip(list<Goat> trip) {}
+void display_trip(list<Goat> trip) {
+  if (trip.empty()) {
+    cout << "Trip has no goats.\n";
+    return;
+  }
+
+  int i = 0;
+  for (const auto& g : trip) {
+    cout << "[" << i++ << "]" << g.get_name() << "(" << g.get_age() << ", "
+         << g.get_color() << ")\n";
+  }
+}
