@@ -76,7 +76,7 @@ void display_trip(list<Goat> trip) {
 
   int i = 1;
   for (const auto& g : trip) {
-    cout << "[" << i++ << "]" << g.get_name() << "(" << g.get_age() << ", "
+    cout << "[" << i++ << "]" << g.get_name() << " (" << g.get_age() << ", "
          << g.get_color() << ")\n";
   }
 }
