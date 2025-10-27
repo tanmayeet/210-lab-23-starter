@@ -36,13 +36,6 @@ int main() {
 
   add_goat(trip, names, colors);
   add_goat(trip, names, colors);
-
-  trip.push_back(Goat("Vida", 14, "Red"));
-  trip.push_back(Goat("Nola", 14, "Gold"));
-  trip.push_back(Goat("Todd", 9, "Green"));
-
-  cout << select_goat(trip) << "\n";
-
   delete_goat(trip);
   display_trip(trip);
   return 0;
@@ -97,7 +90,7 @@ int select_goat(list<Goat> trip) {
   if (choice == 0) {
     return -1;
   }
-  return choice;
+  return choice - 1;
 }
 
 void add_goat(list<Goat>& trip, string names[], string colors[]) {
