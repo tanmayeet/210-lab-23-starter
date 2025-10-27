@@ -41,9 +41,10 @@ int main() {
   trip.push_back(Goat("Nola", 14, "Gold"));
   trip.push_back(Goat("Todd", 9, "Green"));
 
-  cout << select_goat(trip);
+  cout << select_goat(trip) << "\n";
 
-  // display_trip(trip);
+  delete_goat(trip);
+  display_trip(trip);
   return 0;
 }
 
