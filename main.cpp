@@ -30,6 +30,14 @@ int main() {
   while (fin1 >> colors[i++]);
   fin1.close();
 
+  list<Goat> trip;
+  display_trip(trip);
+
+  trip.push_back(Goat("Vida", 14, "Red"));
+  trip.push_back(Goat("Nola", 14, "Gold"));
+  trip.push_back(Goat("Todd", 9, "Green"));
+
+  display_trip(trip);
   return 0;
 }
 
@@ -48,13 +56,13 @@ int main_menu() {
   }
 }
 
-int select_goat(list<Goat> trip) {}
+// int select_goat(list<Goat> trip) {}
 
 void add_goat(list<Goat>& trip, string[], string[]) {
   // int n = rand() % ;
 
-  Goat g();
-  // trip.push_back(g);
+  // Goat g();
+  //  trip.push_back(g);
 }
 
 void delete_goat(list<Goat>& trip) {}
@@ -65,7 +73,7 @@ void display_trip(list<Goat> trip) {
     return;
   }
 
-  int i = 0;
+  int i = 1;
   for (const auto& g : trip) {
     cout << "[" << i++ << "]" << g.get_name() << "(" << g.get_age() << ", "
          << g.get_color() << ")\n";
