@@ -57,16 +57,6 @@ int main_menu() {
     return input;
   }
 }
-// int select_goat(list<Goat> trip) {}
-
-void add_goat(list<Goat>& trip, string[], string[]) {}
-
-void delete_goat(list<Goat>& trip) {
-  if (trip.empty()) {
-    cout << "Trip has no goats.\n";
-    return;
-  }
-}
 
 void display_trip(list<Goat> trip) {
   if (trip.empty()) {
@@ -78,5 +68,22 @@ void display_trip(list<Goat> trip) {
   for (const auto& g : trip) {
     cout << "[" << i++ << "]" << g.get_name() << " (" << g.get_age() << ", "
          << g.get_color() << ")\n";
+  }
+}
+
+int select_goat(list<Goat> trip) { display_trip(trip); }
+
+void add_goat(list<Goat>& trip, string[], string[]) {
+  int rand_name = rand() % 200;
+  int rand_age = rand() % MAX_AGE;
+  int rand_color = rand() % 25;
+
+  Goat g(names[rand_name], rand_age, colors[rand_color]);
+}
+
+void delete_goat(list<Goat>& trip) {
+  if (trip.empty()) {
+    cout << "Trip has no goats.\n";
+    return;
   }
 }
