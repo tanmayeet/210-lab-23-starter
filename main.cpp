@@ -4,19 +4,19 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <list>
+#include <set>
 
 #include "Goat.h"
 using namespace std;
 
-// VERSION WITH LIST
+// VERSION WITH SET
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-int select_goat(list<Goat> trip);
-void delete_goat(list<Goat>& trip);
-void add_goat(list<Goat>& trip, string names[], string colors[]);
-void display_trip(list<Goat> trip);
+int select_goat(set<Goat> trip);
+void delete_goat(set<Goat>& trip);
+void add_goat(set<Goat>& trip, string names[], string colors[]);
+void display_trip(set<Goat> trip);
 int main_menu();
 
 int main() {
@@ -35,7 +35,7 @@ int main() {
   while (fin1 >> colors[i++]);
   fin1.close();
 
-  list<Goat> trip;
+  set<Goat> trip;
   // testing functions
   //   display_trip(trip);
   //   add_goat(trip, names, colors);
@@ -86,7 +86,7 @@ int main_menu() {
 // display_trip displays the full list of goats
 // arguments: list<Goat> trip
 // returns: nothing
-void display_trip(list<Goat> trip) {
+void display_trip(set<Goat> trip) {
   if (trip.empty()) {
     cout << "Trip has no goats.\n";
     return;
@@ -102,7 +102,7 @@ void display_trip(list<Goat> trip) {
 // select_goat allows a user to select a goat based on their input
 // arguments: list<Goat>& trip
 // returns: user selected int
-int select_goat(list<Goat> trip) {
+int select_goat(set<Goat> trip) {
   if (trip.empty()) {
     cout << "Trip has no goats.\n";
     return -1;
@@ -126,18 +126,18 @@ int select_goat(list<Goat> trip) {
 // add_goat adds a goat to the list based on a randomly chosen name, age, and
 // color arguments: list<Goat>& trip, string names[], string colors[] returns:
 // nothing
-void add_goat(list<Goat>& trip, string names[], string colors[]) {
+void add_goat(set<Goat>& trip, string names[], string colors[]) {
   int rand_name = rand() % SZ_NAMES;
   int rand_age = rand() % (MAX_AGE + 1);
   int rand_color = rand() % SZ_COLORS;
 
   Goat g(names[rand_name], rand_age, colors[rand_color]);
-  trip.push_back(g);
+  trip.insert(g);
 }
 // delete_goat deletes a goat from the list based on user input
 // arguments: list<Goat>& trip
 // returns: nothing
-void delete_goat(list<Goat>& trip) {
+void delete_goat(set<Goat>& trip) {
   if (trip.empty()) {
     cout << "Trip has no goats.\n";
     return;
