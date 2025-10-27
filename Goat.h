@@ -18,17 +18,17 @@ class Goat {
     color = "";
   }
   // write three more constructors
-  Goat(string name) { name = "Tofu"; }
+  Goat(string name) { name = ""; }
 
   Goat(string name, int age) {
-    name = "Tofu";
-    age = 2;
+    name = "";
+    age = 0;
   }
 
   Goat(string name, int age, string color) {
-    name = "Tofu";
-    age = 2;
-    color = "Brown";
+    name = "";
+    age = 0;
+    color = "";
   }
 
   // setters and getters

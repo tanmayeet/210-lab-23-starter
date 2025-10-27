@@ -50,20 +50,16 @@ int main_menu() {
     cout << "[4] Quit\n";
     cout << "Choice --> ";
 
-    string line;
-    if (!getline(cin, line)) {
+    int input;
+    if (!(cin >> input)) {
+      return 4;
     }
+    return input;
   }
 }
-
 // int select_goat(list<Goat> trip) {}
 
-void add_goat(list<Goat>& trip, string[], string[]) {
-  // int n = rand() % ;
-
-  // Goat g();
-  //  trip.push_back(g);
-}
+void add_goat(list<Goat>& trip, string[], string[]) {}
 
 void delete_goat(list<Goat>& trip) {
   if (trip.empty()) {
