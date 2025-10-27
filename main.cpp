@@ -41,7 +41,7 @@ int main() {
   trip.push_back(Goat("Nola", 14, "Gold"));
   trip.push_back(Goat("Todd", 9, "Green"));
 
-  int index = select_goat(trip);
+  cout << select_goat(trip);
 
   // display_trip(trip);
   return 0;
@@ -96,7 +96,7 @@ int select_goat(list<Goat> trip) {
   if (choice == 0) {
     return -1;
   }
-  return choice - 1;
+  return choice;
 }
 
 void add_goat(list<Goat>& trip, string names[], string colors[]) {
@@ -113,4 +113,14 @@ void delete_goat(list<Goat>& trip) {
     cout << "Trip has no goats.\n";
     return;
   }
+
+  int index = select_goat(trip);
+  if (index == -1) {
+    cout << "Delete cancelled.\n";
+    return;
+  }
+
+  auto it = trip.begin();
+  advance(it, index);
+  trip.erase(it);
 }
