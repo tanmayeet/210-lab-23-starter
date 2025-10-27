@@ -65,7 +65,12 @@ void add_goat(list<Goat>& trip, string[], string[]) {
   //  trip.push_back(g);
 }
 
-void delete_goat(list<Goat>& trip) {}
+void delete_goat(list<Goat>& trip) {
+  if (trip.empty()) {
+    cout << "Trip has no goats.\n";
+    return;
+  }
+}
 
 void display_trip(list<Goat> trip) {
   if (trip.empty()) {
