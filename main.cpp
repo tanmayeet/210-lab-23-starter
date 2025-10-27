@@ -31,6 +31,7 @@ int main() {
   fin1.close();
 
   list<Goat> trip;
+  // testing functions
   display_trip(trip);
 
   add_goat(trip, names, colors);
@@ -39,6 +40,8 @@ int main() {
   trip.push_back(Goat("Vida", 14, "Red"));
   trip.push_back(Goat("Nola", 14, "Gold"));
   trip.push_back(Goat("Todd", 9, "Green"));
+
+  int index = select_goat(trip);
 
   display_trip(trip);
   return 0;
@@ -74,7 +77,27 @@ void display_trip(list<Goat> trip) {
   }
 }
 
-// int select_goat(list<Goat> trip) { display_trip(trip); }
+int select_goat(list<Goat> trip) {
+  if (trip.empty()) {
+    cout << "Trip has no goats.\n";
+    return -1;
+  }
+
+  display_trip(trip);
+
+  int choice;
+  cout << "Enter the number of the goat you want to select (0 to exit)";
+  cin >> choice;
+
+  while (choice < 0 || choice > trip.size()) {
+    cout << "Invalid choice. Choose again.\n";
+    cin >> choice;
+  }
+  if (choice == 0) {
+    return -1;
+  }
+  return choice - 1;
+}
 
 void add_goat(list<Goat>& trip, string names[], string colors[]) {
   int rand_name = rand() % SZ_NAMES;
