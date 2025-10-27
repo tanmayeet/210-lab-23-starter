@@ -1,3 +1,5 @@
+// COMSC210 | Lab 23 | Tanmayee Chalamalasetti
+// IDE Used: VS Code
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -32,13 +34,26 @@ int main() {
 
   list<Goat> trip;
   // testing functions
-  display_trip(trip);
+  //   display_trip(trip);
+  //   add_goat(trip, names, colors);
+  //   add_goat(trip, names, colors);
+  //   delete_goat(trip);
+  //   display_trip(trip);
+  //   return 0;
 
-  add_goat(trip, names, colors);
-  add_goat(trip, names, colors);
-  delete_goat(trip);
-  display_trip(trip);
-  return 0;
+  int choice;
+  choice = main_menu();
+  if (choice == 1) {
+    add_goat(trip, names, colors);
+  } else if (choice == 2) {
+    delete_goat(trip);
+  } else if (choice == 3) {
+    display_trip(trip);
+  } else if (choice == 4) {
+    return -1;
+  } else {
+    cout << "Invalid entry.";
+  }
 }
 
 int main_menu() {
@@ -57,7 +72,9 @@ int main_menu() {
     return input;
   }
 }
-
+// display_trip displays the full list of goats
+// arguments: list<Goat> trip
+// returns: nothing
 void display_trip(list<Goat> trip) {
   if (trip.empty()) {
     cout << "Trip has no goats.\n";
@@ -71,6 +88,9 @@ void display_trip(list<Goat> trip) {
   }
 }
 
+// select_goat
+// arguments: list<Goat>& trip
+// returns: user selected int
 int select_goat(list<Goat> trip) {
   if (trip.empty()) {
     cout << "Trip has no goats.\n";
@@ -92,7 +112,9 @@ int select_goat(list<Goat> trip) {
   }
   return choice - 1;
 }
-
+// add_goat adds a goat to the list based on a randomly chosen name, age, and
+// color arguments: list<Goat>& trip, string names[], string colors[] returns:
+// nothing
 void add_goat(list<Goat>& trip, string names[], string colors[]) {
   int rand_name = rand() % SZ_NAMES;
   int rand_age = rand() % MAX_AGE;
@@ -101,7 +123,9 @@ void add_goat(list<Goat>& trip, string names[], string colors[]) {
   Goat g(names[rand_name], rand_age, colors[rand_color]);
   trip.push_back(g);
 }
-
+// delete_goat deletes a goat from the list based on user input
+// arguments: list<Goat>& trip
+// returns: nothing
 void delete_goat(list<Goat>& trip) {
   if (trip.empty()) {
     cout << "Trip has no goats.\n";
