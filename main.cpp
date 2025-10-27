@@ -10,7 +10,7 @@ const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
 int select_goat(list<Goat> trip);
 void delete_goat(list<Goat>& trip);
-void add_goat(list<Goat>& trip, string[], string[]);
+void add_goat(list<Goat>& trip, string names[], string colors[]);
 void display_trip(list<Goat> trip);
 int main_menu();
 
@@ -32,6 +32,9 @@ int main() {
 
   list<Goat> trip;
   display_trip(trip);
+
+  add_goat(trip, names, colors);
+  add_goat(trip, names, colors);
 
   trip.push_back(Goat("Vida", 14, "Red"));
   trip.push_back(Goat("Nola", 14, "Gold"));
@@ -71,14 +74,15 @@ void display_trip(list<Goat> trip) {
   }
 }
 
-int select_goat(list<Goat> trip) { display_trip(trip); }
+// int select_goat(list<Goat> trip) { display_trip(trip); }
 
-void add_goat(list<Goat>& trip, string[], string[]) {
-  int rand_name = rand() % 200;
+void add_goat(list<Goat>& trip, string names[], string colors[]) {
+  int rand_name = rand() % SZ_NAMES;
   int rand_age = rand() % MAX_AGE;
-  int rand_color = rand() % 25;
+  int rand_color = rand() % SZ_COLORS;
 
   Goat g(names[rand_name], rand_age, colors[rand_color]);
+  trip.push_back(g);
 }
 
 void delete_goat(list<Goat>& trip) {
