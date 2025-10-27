@@ -1,5 +1,7 @@
-// COMSC210 | Lab 23 | Tanmayee Chalamalasetti
+// COMSC210 | Lab 23 & 24 | Tanmayee Chalamalasetti
 // IDE Used: VS Code
+// Converted Lab 23 to use std::set instead of std::list
+// You can see my version with std::list in the version history
 #include <ctime>
 #include <fstream>
 #include <iomanip>
